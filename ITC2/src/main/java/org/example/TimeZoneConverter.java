@@ -75,6 +75,26 @@ public class TimeZoneConverter {
         System.out.println("(B) Zurück");
         System.out.println("(Q) Quit");
         System.out.println("\n----------------------------------------------------------------------\n");
+        String input = scanner.nextLine();
+        switch (input.toUpperCase()){
+            case "C":
+                displayConverter();
+                break;
+            case "B":
+                displayMainMenu();
+                break;
+            case "Q":
+                System.out.println("Auf Wiedersehen!");
+                System.exit(0);
+            default:
+                System.out.println("Ungültige Eingabe. Bitte versuche es erneut.");
+                displaySettingsMenu();
+        }
+    }
+
+    private static void displayConverter() {
+        // Zeitzoneconverter gestartet
+
         displayMainMenu();
     }
 
