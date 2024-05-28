@@ -15,7 +15,6 @@ public class TimeZoneConverter {
         System.out.println("*          TIME ZONE CONVERTER         *");
         System.out.println("****************************************");
         System.out.println("Klicke (X) für Alle Commands");
-        System.out.println("----------------------------------------------------------------------\n");
 
         String input = scanner.nextLine();
         switch (input.toUpperCase()) {
@@ -54,7 +53,9 @@ public class TimeZoneConverter {
         System.out.println("(S) Einstellungen");
         System.out.println("(B) Zurück ");
         System.out.println("(Q) Quit");
-        System.out.println("----------------------------------------------------------------------\n");
+        System.out.println("\n----------------------------------------------------------------------\n");
+
+        displayMainMenu();
     }
 
     private static void displayInstructions() {
@@ -73,16 +74,20 @@ public class TimeZoneConverter {
         System.out.println("(C) TimeZone Converter Starten");
         System.out.println("(B) Zurück");
         System.out.println("(Q) Quit");
-        System.out.println("----------------------------------------------------------------------\n");
+        System.out.println("\n----------------------------------------------------------------------\n");
         displayMainMenu();
     }
 
     private static void displayTimeZones() {
         // Zeitzonen auflisten
+
+        displayMainMenu();
     }
 
     private static void addToFavorites() {
         // Zu Favoriten hinzufügen
+
+        displayMainMenu();
     }
 
     private static void displaySettingsMenu() {
@@ -115,5 +120,7 @@ public class TimeZoneConverter {
 
     private static void displayTimeOutputSettings() {
         // Zeitausgabe-Einstellungen anzeigen
+
+        displayMainMenu();
     }
 }
