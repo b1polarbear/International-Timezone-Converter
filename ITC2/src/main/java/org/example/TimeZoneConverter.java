@@ -14,17 +14,14 @@ public class TimeZoneConverter {
         System.out.println("****************************************");
         System.out.println("*          TIME ZONE CONVERTER         *");
         System.out.println("****************************************");
-        System.out.println("COMMANDS:");
-        System.out.println("(O) Anleitung");
-        System.out.println("(L) Alle Zeitzonen Auflisten");
-        System.out.println("(F) Zu Favoriten Hinzufügen");
-        System.out.println("(S) Einstellungen");
-        System.out.println("(B) Zurück ");
-        System.out.println("(Q) Quit");
+        System.out.println("Klicke (X) für Alle Commands");
         System.out.println("----------------------------------------------------------------------");
 
         String input = scanner.nextLine();
         switch (input.toUpperCase()) {
+            case "X":
+                displayCommands();
+                break;
             case "O":
                 displayInstructions();
                 break;
@@ -47,6 +44,17 @@ public class TimeZoneConverter {
                 System.out.println("Ungültige Eingabe. Bitte versuche es erneut.");
                 displayMainMenu();
         }
+    }
+
+    private static void displayCommands() {
+        System.out.println("COMMANDS:");
+        System.out.println("(O) Anleitung");
+        System.out.println("(L) Alle Zeitzonen Auflisten");
+        System.out.println("(F) Zu Favoriten Hinzufügen");
+        System.out.println("(S) Einstellungen");
+        System.out.println("(B) Zurück ");
+        System.out.println("(Q) Quit");
+        System.out.println("----------------------------------------------------------------------");
     }
 
     private static void displayInstructions() {
