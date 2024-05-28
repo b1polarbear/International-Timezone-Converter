@@ -15,7 +15,7 @@ public class TimeZoneConverter {
         System.out.println("*          TIME ZONE CONVERTER         *");
         System.out.println("****************************************");
         System.out.println("Klicke (X) für Alle Commands");
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------\n");
 
         String input = scanner.nextLine();
         switch (input.toUpperCase()) {
@@ -54,7 +54,7 @@ public class TimeZoneConverter {
         System.out.println("(S) Einstellungen");
         System.out.println("(B) Zurück ");
         System.out.println("(Q) Quit");
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------\n");
     }
 
     private static void displayInstructions() {
@@ -68,7 +68,12 @@ public class TimeZoneConverter {
         System.out.println("--------------------------------------------");
         System.out.println("Konvertierte Zeit: 2024-04-16 06:30 PST");
         System.out.println("--------------------------------------------\n");
-        System.out.println("----------------------------------------------------------------------");
+        System.out.println("\n");
+        System.out.println("ZEITZONECONVERTER COMMANDS:");
+        System.out.println("(C) TimeZone Converter Starten");
+        System.out.println("(B) Zurück");
+        System.out.println("(Q) Quit");
+        System.out.println("----------------------------------------------------------------------\n");
         displayMainMenu();
     }
 
