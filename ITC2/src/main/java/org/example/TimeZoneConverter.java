@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class TimeZoneConverter {
     private static final Scanner scanner = new Scanner(System.in);
-    private static boolean isMilitaryTime = false;  // default to standard time (12-hour format)
+    private static boolean isMilitaryTime = false;  // Standardmäßig im 12-Stunden-Format
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private static final FavoriteZones favoriteZones = new FavoriteZones();
     private static boolean showMainMenu = true;
@@ -22,6 +22,7 @@ public class TimeZoneConverter {
         }
     }
 
+    // Hauptmenü anzeigen
     private static void displayMainMenu() {
         System.out.println("****************************************");
         System.out.println("*          TIME ZONE CONVERTER         *");
@@ -29,6 +30,7 @@ public class TimeZoneConverter {
         System.out.println("Klicke (X) für Alle Commands");
     }
 
+    // Benutzereingaben verarbeiten
     private static void handleUserInput() {
         String input = scanner.nextLine();
         switch (input.toUpperCase()) {
@@ -39,7 +41,7 @@ public class TimeZoneConverter {
             case "D" -> removeFromFavorites();
             case "V" -> favoriteZones.listFavorites();
             case "S" -> displaySettingsMenu();
-            case "B" -> showMainMenu = true; // Set flag to true to show the main menu again
+            case "B" -> showMainMenu = true; // Setze Flag auf true, um das Hauptmenü erneut anzuzeigen
             case "Q" -> {
                 System.out.println("Auf Wiedersehen!");
                 System.exit(0);
@@ -48,12 +50,14 @@ public class TimeZoneConverter {
         }
     }
 
+    // Zeitzone aus Favoriten entfernen
     private static void removeFromFavorites() {
         System.out.println("Gebe die Zeitzone ein, die du aus den Favoriten entfernen möchtest:");
         String zoneId = scanner.nextLine();
         favoriteZones.removeFavorite(zoneId);
     }
 
+    // Verfügbare Befehle anzeigen
     private static void displayCommands() {
         System.out.println("COMMANDS:");
         System.out.println("(O) Anleitung");
@@ -67,6 +71,7 @@ public class TimeZoneConverter {
         System.out.println("\n----------------------------------------------------------------------\n");
     }
 
+    // Anleitung anzeigen
     private static void displayInstructions() {
         System.out.println("----------------------------------------------------------------------");
         System.out.println("ANLEITUNG: ");
@@ -87,9 +92,7 @@ public class TimeZoneConverter {
         String input = scanner.nextLine();
         switch (input.toUpperCase()) {
             case "C" -> convertTime();
-            case "B" -> {
-                showMainMenu = true;
-            }
+            case "B" -> showMainMenu = true;
             case "Q" -> {
                 System.out.println("Auf Wiedersehen!");
                 System.exit(0);
@@ -98,6 +101,7 @@ public class TimeZoneConverter {
         }
     }
 
+    // Zeit konvertieren
     private static void convertTime() {
         System.out.println("Gebe deine Zeitzone ein: ");
         String sourceZoneId = scanner.nextLine();
@@ -137,6 +141,7 @@ public class TimeZoneConverter {
         System.out.println("--------------------------------------------\n");
     }
 
+    // Zeitzonen anzeigen
     private static void displayTimeZones() {
         System.out.println("Liste aller Zeitzonen:");
         System.out.println("--------------------------------------------");
@@ -167,18 +172,21 @@ public class TimeZoneConverter {
         System.out.println("--------------------------------------------\n");
     }
 
+    // Zeitzonen nach Kontinent filtern
     private static String[] filterZonesByContinent(String continent) {
         return ZoneId.getAvailableZoneIds().stream()
                 .filter(zoneId -> zoneId.startsWith(continent))
                 .toArray(String[]::new);
     }
 
+    // Zeitzone zu den Favoriten hinzufügen
     private static void addToFavorites() {
         System.out.println("Gebe die Zeitzone ein, die du zu den Favoriten hinzufügen möchtest:");
         String zoneId = scanner.nextLine();
         favoriteZones.addFavorite(zoneId);
     }
 
+    // Einstellungsmenü anzeigen
     private static void displaySettingsMenu() {
         System.out.println("****************************************");
         System.out.println("*             Einstellungen            *");
@@ -193,7 +201,6 @@ public class TimeZoneConverter {
         switch (input.toUpperCase()) {
             case "Z" -> displayTimeOutputSettings();
             case "B" -> {
-                return;
             }
             case "Q" -> {
                 System.out.println("Auf Wiedersehen!");
@@ -203,6 +210,7 @@ public class TimeZoneConverter {
         }
     }
 
+    // Einstellungen für die Zeitausgabe anzeigen
     private static void displayTimeOutputSettings() {
         System.out.println("****************************************");
         System.out.println("*         Zeitausgabe-Einstellungen    *");
@@ -224,12 +232,12 @@ public class TimeZoneConverter {
                 System.out.println("Standardzeit (12H Uhr) aktiviert.");
             }
             case "B" -> {
-                return;
             }
             default -> System.out.println("Ungültige Eingabe. Bitte versuche es erneut.");
         }
     }
 
+    // Zeit formatieren
     private static String formatTime(ZonedDateTime time) {
         DateTimeFormatter formatter;
         if (isMilitaryTime) {
