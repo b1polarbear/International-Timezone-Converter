@@ -1,11 +1,13 @@
 package org.example;
 
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.Set;
 
 public class FavoriteZones {
-    private Set<String> favorites = new HashSet<>();
+    private final Set<String> favorites = new HashSet<>();
 
     public void addFavorite(String zoneId) {
         if (ZoneId.getAvailableZoneIds().contains(zoneId)) {
@@ -29,8 +31,11 @@ public class FavoriteZones {
             System.out.println("Keine Favoriten gefunden.");
         } else {
             System.out.println("Favoriten Zeitzonen:");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             for (String zoneId : favorites) {
-                System.out.println(zoneId);
+                ZonedDateTime currentTime = ZonedDateTime.now(ZoneId.of(zoneId));
+                String formattedTime = currentTime.format(formatter);
+                System.out.println(zoneId + ": " + formattedTime);
             }
         }
     }
