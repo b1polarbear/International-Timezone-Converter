@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class TimeZoneConverter {
+public class TimeZoneConverter{
     private static final Scanner scanner = new Scanner(System.in);
     private static boolean isMilitaryTime = false;  // Standardmäßig im 12-Stunden-Format
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -22,7 +22,7 @@ public class TimeZoneConverter {
         }
     }
 
-    // Hauptmenü anzeigen
+    // Hauptmenü anzeigen mit displaymenu
     private static void displayMainMenu() {
         System.out.println("****************************************");
         System.out.println("*          TIME ZONE CONVERTER         *");
