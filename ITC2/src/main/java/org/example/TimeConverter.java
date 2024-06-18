@@ -3,7 +3,7 @@ package org.example;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-public class TimeConverter {
+public class TimeConverter extends TimeZoneConverter{
     public static void main(String[] args){
         //Get the time zone for New York
         ZoneId newYork = ZoneId.of("America/New_York");
